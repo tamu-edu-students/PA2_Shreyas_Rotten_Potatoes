@@ -19,6 +19,8 @@ more_movies = [
       :release_date => '13-Aug-2021'},
     {:title => 'Perks of being a Wallflower', :rating => 'PG-13',
       :release_date => '21-Sep-2012'}
+    {:title => 'Saptha Sagaradache Ello', :rating => 'UG',
+      :release_date => '24-Sep-2023'}
   ]
   
   more_movies.each do |movie|
