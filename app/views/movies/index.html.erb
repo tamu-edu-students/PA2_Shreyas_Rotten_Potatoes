@@ -2,13 +2,21 @@
 
 <h1>Movies</h1>
 
-<div id="movies">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Release Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
+    <%= render partial: 'movie', locals: { movie: movie, context: 'index' } %>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_movie_path, class: "btn btn-primary" %>

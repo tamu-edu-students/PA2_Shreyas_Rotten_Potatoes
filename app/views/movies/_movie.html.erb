@@ -1,22 +1,33 @@
-<div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
-    <%= movie.title %>
-  </p>
+<% if context == 'index' %>
+  <tr id="<%= dom_id movie %>">
+    <td><%= movie.title %></td>
+    <td><%= movie.rating %></td>
+    <td><%= movie.description %></td>
+    <td><%= movie.release_date %></td>
+    <td>
+      <%= link_to "Show", movie, class: "btn btn-secondary btn-sm" %>
+    </td>
+  </tr>
+<% elsif context == 'show' %>
+<div id="<%= dom_id movie %>" class="card mt-4">
+  <div class="card-body">
+    <h2 class="card-title"><%= movie.title %></h2>
+    <hr>
 
-  <p>
-    <strong>Rating:</strong>
-    <%= movie.rating %>
-  </p>
+    <div class="mb-3">
+      <h5>Rating:</h5>
+      <span class="badge bg-primary"><%= movie.rating %></span>
+    </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= movie.description %>
-  </p>
+    <div class="mb-3">
+      <h5>Description:</h5>
+      <p class="card-text"><%= movie.description %></p>
+    </div>
 
-  <p>
-    <strong>Release date:</strong>
-    <%= movie.release_date %>
-  </p>
-
+    <div class="mb-3">
+      <h5>Release Date:</h5>
+      <p><%= movie.release_date.strftime("%B %d, %Y") %></p> <!-- Formatted date for better presentation -->
+    </div>
+  </div>
 </div>
+<% end %>
